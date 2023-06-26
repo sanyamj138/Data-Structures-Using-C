@@ -13,7 +13,6 @@ void merging(int arr1[], int arr2[], int size1, int size2) {
             j++;k++;
         } 
     }
-
     printf("\nPerforming merging and sorting...\n");
 
     for(i = 0; i < size1 + size2; i++) {
