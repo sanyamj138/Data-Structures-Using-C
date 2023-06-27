@@ -14,6 +14,7 @@ int pyramid(int size, int i) {
     }
 
     pyramid(size-1, i);
+    
 
     if(size != 0 && size >= i) {
         i++;
