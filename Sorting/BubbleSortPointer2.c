@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 
 // With Return and Without Arguement
 
@@ -8,6 +9,8 @@ int * bubbleSort() {
 
     printf("Enter size of the array: ");
     scanf("%d", &size);
+
+    arr = (int *) malloc (size * sizeof(int));
 
     printf("Enter array elements: ");
     for(i = 0; i < size; i++) {
