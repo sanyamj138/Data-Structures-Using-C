@@ -1,5 +1,6 @@
 #include<stdio.h>
-
+ 
+// This recursive function brings the smallest element at the first location
 int * bubbleSort(int *arr, int size) {
     int temp;
 
@@ -17,6 +18,18 @@ int * bubbleSort(int *arr, int size) {
     return arr;
 }
 
+// This recursive function will call the function for the given size
+int * sort(int * arr, int size, int i) {
+    
+    if(i == size) {
+        return 0; 
+    }
+
+    sort(arr, size, i+1);
+    arr = bubbleSort(arr, size - 1);
+    return arr;
+}
+
 int main() {
     int size, i, arr[50];
     int *p;
@@ -30,9 +43,7 @@ int main() {
         scanf("%d", &arr[i]);
     }
 
-    for(i = 0; i < size - 1; i++) {
-        p = bubbleSort(arr, size-1);
-    }
+    p = sort(arr, size, 0);
     
     for(i = 0; i < size; i++) {
         printf("%d ", *p);
