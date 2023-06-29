@@ -22,7 +22,17 @@ int * bubbleSort(int *arr, int size) {
 int main() {
     int size, i, arr[50];
     int *p;
-    
+
+    printf("Enter size of the array: ");
+    scanf("%d", &size);
+
+    printf("Enter array elements: ");
+
+    for(i = 0; i < size; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+
   	// Calling function for the given number of size
     for(i = 0; i < size - 1; i++) {
         p = bubbleSort(arr, size-1);

@@ -31,8 +31,8 @@ int * sort(int * arr, int size, int i) {
 }
 
 int main() {
-    int size, i, arr[50];
     int *p;
+    int size, i, arr[50];
 
     printf("Enter size of the array: ");
     scanf("%d", &size);
