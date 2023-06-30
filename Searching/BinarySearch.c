@@ -1,11 +1,14 @@
 #include<stdio.h>
 
 int binarySearch(int arr[], int size, int ele) {
-    int mid;
     int high = size - 1;
     int low = 0;
+    int mid;
 
-    while(low < high) {
+    while(low <= high) {
+
+        mid = (high + low)/2;
+
         if(arr[mid] == ele)
             return mid;
         else if(arr[mid] > ele)
