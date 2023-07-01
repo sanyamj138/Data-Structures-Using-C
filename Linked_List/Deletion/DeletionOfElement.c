@@ -28,21 +28,25 @@ void append(int data) {
     r->next = p;
 }
 
-int searching(int ele) {
-    struct demo *p = head; 
+void deletionOfElement(int ele) {
+    struct demo * r = (struct demo *) malloc (sizeof(struct demo));
+    struct demo * p = head;
     
-    while(p != '\0') {
-        if(p->data == ele) 
-        return 1;
+    while(p->next->data != ele) {
+        if(p->next == '\0')
+            return;
         p = p->next;
     }
-    return 0;
+    r = p->next;
+    p->next = r->next;
+    free(r);
+    
 }
 
 int main() {
     struct demo *p;
-    int i, size, ele;
-    int data;
+    int i, size;
+    int data, ele;
     p = (struct demo *) malloc (sizeof(struct demo));
 
     printf("Enter the number of elements you want to enter: ");
@@ -53,13 +57,18 @@ int main() {
         append(data);
     }
 
-    printf("Enter element you want to search: ");
+    printf("Enter element you want to delete: ");
     scanf("%d",&ele);
 
-    if(searching(ele))
-        printf("Element Found\n");
-    else
-        printf("Element Not Found\n");
+    deletionOfElement(ele);
+
+    p->data = head->data;
+    p->next = head->next;
+    
+    while(p != '\0') {
+        printf("%d ", p->data);
+        p = p->next;
+    }
 
     return 0;
 }
