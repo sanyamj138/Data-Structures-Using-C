@@ -1,31 +1,43 @@
 #include<stdio.h>
 
-int * sorting(int *arr, int low, int high) {
-    int i = low;
-    int j = high - 1;
+int sort(int arr[], int low, int high) {
+    int pivot;
     int temp;
-    
-    while(i <= j) {
-        if(arr[i] < arr[j]) {
-            temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
+    int i;
 
-            j--;
-        }
-        else if(arr[i] > arr[j]) {
-            temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
+    i = low - 1;
 
+    pivot = arr[high];
+
+    while(low < high) {
+        if(pivot > arr[low]) {
             i++;
+            temp = arr[low];
+            arr[low] = arr[i];
+            arr[i] = temp;
         }
+        low++;
     }
 
-    sorting(arr, low, i);
-    sorting(arr, j, high);
+    temp = arr[i+1];
+    arr[i+1] = high;
+    high = temp; 
 
-    return arr;
+    return i+1;
+}
+
+void sorting(int arr[], int low, int high) {
+    int temp, i;
+    
+    if(low < high) {
+        temp = sort(arr, low, high);
+        sort(arr, low, temp-1);
+        sort(arr, temp+1, high);
+    }
+
+    for(i = 0; i < high + 1; i++) {
+        printf("%d ", arr[i]);
+    }   
 }
 
 int main() {
@@ -41,14 +53,9 @@ int main() {
         scanf("%d", &arr[i]);
     }
 
-    printf("Performing Quick Sort...");
+    printf("Performing Quick Sort...\n");
 
-    p = sorting(arr, 0, size-1);
-
-    for(i = 0; i < size; i++) {
-        printf("%d ", *p);
-        p++;
-    }   
+    sorting(arr, 0, size-1);
 
     return 0;
 }
