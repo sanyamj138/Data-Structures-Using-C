@@ -8,6 +8,11 @@ void append(int data) {
     arr[top] = data;
 }
 
+void push(int data) {
+    top++;
+    arr[top] = data;
+}
+
 int main() {
     int i;
     int size, data;
@@ -20,7 +25,12 @@ int main() {
         append(data);
     }
     
-    for(i = 0; i < size; i++) {
+    printf("Enter element you want to push in stack: ");
+    scanf("%d",&data);
+
+    push(data);
+
+    for(i = 0; i <= size; i++) {
         printf("%d ", arr[i]);
     }
 
