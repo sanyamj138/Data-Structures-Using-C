@@ -29,11 +29,17 @@ void append(int data) {
     r->next = p;
 }
 
-begining(int data) {
+void begining(int data) {
     struct demo *p = (struct demo *) malloc (sizeof(struct demo)); 
     p->data = data;
 
+    struct demo *r = head;
+
+    while(r->next != head) {
+        r = r->next;
+    }
     p->next = head;
+    r->next = p;
     head = p;
 }
 
@@ -57,8 +63,7 @@ int main() {
 
     begining(data);
 
-    p->data = head->data;
-    p->next = head->next;
+    p = head;
     
     while(p->next != head) {
         printf("%d ", p->data);
