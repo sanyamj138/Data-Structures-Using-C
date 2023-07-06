@@ -1,6 +1,7 @@
 #include<stdio.h>
 
 int rear = -1;
+int front = -1;
 int arr[100];
 
 void append(int data) {

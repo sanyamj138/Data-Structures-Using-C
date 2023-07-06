@@ -1,7 +1,7 @@
 #include<stdio.h>
 
 int rear = -1;
-int front = -1;
+int front = 0;
 int arr[100];
 
 void append(int data) {
@@ -9,9 +9,9 @@ void append(int data) {
     arr[rear] = data;
 }
 
-void enqueue(int data) {
-    rear++;
-    arr[rear] = data;
+void dequeue() {
+    printf("%d ", arr[front]);
+    front++;
 }
 
 int main() {
@@ -25,13 +25,13 @@ int main() {
         scanf("%d",&data);
         append(data);
     }
-    
-    printf("Enter element you want to enqueue: ");
-    scanf("%d", &data);
 
-    enqueue(data);
+    dequeue();
+    dequeue();
 
-    for(i = 0; i <= size; i++) {
+    printf("\n");
+
+    for(i = front; i <= rear; i++) {
         printf("%d ", arr[i]);
     }
 
