@@ -10,17 +10,12 @@ void append(int data) {
 
 void reverse(int size) {
     int x = top;
-    int temp, i, j;
-
-    for(j = 0; j < size; j++) {
-        for(i = 0; i < x; i++) {
-            temp = arr[top];
-            arr[top] = arr[top - 1];
-            arr[top - 1] = temp;
-
-            top = top - 1;
-        }
-        x = top;
+    int temp, i = 0, j = size - 1;
+    while(i < j) {
+        temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+        i++; j--;
     }
 }
 

@@ -27,8 +27,6 @@ void append(int data) {
     top = p;
 }
 
-
-
 int main() {
     struct demo *p;
     int i, size;
