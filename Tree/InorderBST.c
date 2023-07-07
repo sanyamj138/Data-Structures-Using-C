@@ -2,6 +2,7 @@
 #include<stdlib.h>
 
 struct node *root = NULL;
+struct node *root1 = NULL;
 struct node *start = NULL;
 
 struct node {
@@ -18,16 +19,29 @@ void append(int data){
         root->right = NULL;
         root->left = NULL;
         start = root;
+        root1 = root;
         return;
     }
     
-    if(root->data < p->data) {
-        root->right = p;
-        root = root->right;
+    if(start->data > p->data) {
+        if(root->data < p->data) {
+            root->right = p;
+            root = root->right;
+        }
+        else {
+            root->left = p;
+            root = root->left;
+        }
     }
     else {
-        root->left = p;
-        root = root->left;
+        if(root1->data < p->data) {
+            root1->right = p;
+            root1 = root1->right;
+        }
+        else {
+            root1->left = p;
+            root1 = root1->left;
+        }
     }
 
     p->left = NULL;
