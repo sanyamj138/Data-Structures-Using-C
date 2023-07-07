@@ -38,8 +38,8 @@ void display(struct node * p) {
     if(p == NULL) 
     return;
     display(p->left); 
-    printf("%d ", p->data);
     display(p->right);
+    printf("%d ", p->data);
 }   
 
 int main() {
