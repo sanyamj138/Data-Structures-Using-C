@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
-struct node *start = NULL;
+
+struct node * start = NULL;
+struct node *root = NULL;
 
 struct node {
     int data;
@@ -12,27 +14,40 @@ void append(int data){
     struct node * p = (struct node *) malloc (sizeof(struct node));
 
     p->data = data;
+    p->left = NULL;
+    p->right = NULL;
+
     if(start == NULL) {
         start = p;
-        start->right = NULL;
-        start->left = NULL;
         return;
     }
-
-    struct node *root = start;
+        
+    root = start;
 
     while(root != NULL) {
         if(root->data < p->data) {
             root = root->right;
         }
-        else if(root->data > p->data) {
+        else {
             root = root->left;
         }
     }
-
     root = p;
-    root->left = NULL;
-    root->right = NULL;
+
+    // while(root->right != NULL || root->left != NULL) {
+    //     if(root->data < p->data) {
+    //         root = root->right;
+    //     }
+    //     else {
+    //         root = root->left;
+    //     }
+    // }
+    // if(root->data < p->data) {
+    //     root->right = p;
+    // }
+    // else {
+    //     root->left = p;
+    // }
 }
 
 void display(struct node * p) {
